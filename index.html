@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>AT4RE color scheme gradient palette</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        background-color: #181a1b;
+        color: #ddd;
+        font-family: "Roboto", "Cairo", sans-serif;
+      }
+      #root {
+        padding-bottom: 64px;
+      }
+      a {
+        color: #60a9da;
+      }
+      .cardColor {
+        width: 100%;
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #181a1bd5;
+      }
+      .item {
+        padding: 8px;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        background-color: #181a1bd5;
+        cursor: copy;
+      }
+
+      .note {
+        position: fixed;
+        background-color: rgba(255, 0, 0, 0.603);
+        width: 256px;
+        padding: 16px;
+        top: 8px;
+        left: 16px;
+      }
+      .draft {
+        position: fixed;
+        background-color: rgba(2, 129, 45, 0.603);
+        width: 256px;
+        padding: 16px;
+        top: calc(8px + 16px * 4);
+        left: 16px;
+        display: none;
+      }
+
+      .donate {
+        position: fixed;
+        width: 150px;
+        padding: 16px;
+        top: 8px;
+        right: 16px;
+      }
+
+      .copyright {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        height: 64px;
+        width: 100%;
+        background-color: #181a1b;
+        color: #ddd;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #007bff;
+        border-radius: 30px;
+      }
+      ::-webkit-scrollbar {
+        width: 10px;
+        background-color: #202324;
+        color: #aba499;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div class="note">click on text to copy</div>
+    <div class="draft"></div>
+    <div class="donate">
+      <a
+        rel="noreferrer noopener"
+        target="_blank"
+        href="https://www.at4re.net/f/thread-1167.html"
+        ><img src="https://www.at4re.net/f/images/Donate.png"
+      /></a>
+    </div>
+    <div class="copyright">
+      All rights reserved to&nbsp;
+      <a
+        rel="noreferrer noopener"
+        target="_blank"
+        href="https://www.at4re.net/f/user-3678.html"
+        >R333T</a
+      >&nbsp; from&nbsp;
+      <a
+        rel="noreferrer noopener"
+        target="_blank"
+        href="https://www.at4re.net/f/index.php"
+        >AT4RE</a
+      >&nbsp;
+    </div>
+    <script>
+      const colors = [
+        {
+          code: "900",
+          name: "Sapphire Blue",
+          hex: "#0068AD",
+          hsb: "hsb(204, 100, 68)",
+          hsl: "hsl(204, 100%, 34%)",
+          rgb: "rgb(0, 104, 173)",
+          cmyk: "cmyk(100, 40, 0, 32)",
+          lab: "lab(43, 1, -44)",
+        },
+        {
+          code: "800",
+          name: "Green Blue Crayola",
+          hex: "#338BC5",
+          hsb: "hsb(204, 74, 77)",
+          hsl: "hsl(204, 59%, 49%)",
+          rgb: "rgb(51, 139, 197)",
+          cmyk: "cmyk(74, 29, 0, 23)",
+          lab: "lab(55, -7, -38)",
+        },
+        {
+          code: "700",
+          name: "Iceberg",
+          hex: "#4D9CD1",
+          hsb: "hsb(204, 63, 82)",
+          hsl: "hsl(204, 59%, 56%)",
+          rgb: "rgb(77, 156, 209)",
+          cmyk: "cmyk(63, 25, 0, 18)",
+          lab: "lab(62, -8, -34)",
+        },
+        {
+          code: "600",
+          name: "Carolina Blue",
+          hex: "#5AA5D7",
+          hsb: "hsb(204, 58, 84)",
+          hsl: "hsl(204, 61%, 60%)",
+          rgb: "rgb(90, 165, 215)",
+          cmyk: "cmyk(58, 23, 0, 16)",
+          lab: "lab(65, -9, -32)",
+        },
+        {
+          code: "500",
+          name: "Blue Jeans",
+          hex: "#60A9DA",
+          hsb: "hsb(204, 56, 85)",
+          hsl: "hsl(204, 62%, 62%)",
+          rgb: "rgb(96, 169, 218)",
+          cmyk: "cmyk(56, 22, 0, 15)",
+          lab: "lab(66, -9, -32)",
+        },
+        {
+          code: "400",
+          name: "Air Superiority Blue",
+          hex: "#66ADDD",
+          hsb: "hsb(204, 54, 87)",
+          hsl: "hsl(204, 64%, 63%)",
+          rgb: "rgb(102, 173, 221)",
+          cmyk: "cmyk(54, 22, 0, 13)",
+          lab: "lab(68, -9, -31)",
+        },
+        {
+          code: "300",
+          name: "Light Cornflower Blue",
+          hex: "#74B4E0",
+          hsb: "hsb(204, 48, 88)",
+          hsl: "hsl(204, 64%, 67%)",
+          rgb: "rgb(116, 180, 224)",
+          cmyk: "cmyk(48, 20, 0, 12)",
+          lab: "lab(71, -9, -28)",
+        },
+        {
+          code: "200",
+          name: "Aero",
+          hex: "#81BBE3",
+          hsb: "hsb(204, 43, 89)",
+          hsl: "hsl(204, 64%, 70%)",
+          rgb: "rgb(129, 187, 227)",
+          cmyk: "cmyk(43, 18, 0, 11)",
+          lab: "lab(73, -8, -26)",
+        },
+        {
+          code: "100",
+          name: "Light Sky Blue",
+          hex: "#8CC1E6",
+          hsb: "hsb(205, 39, 90)",
+          hsl: "hsl(205, 64%, 73%)",
+          rgb: "rgb(140, 193, 230)",
+          cmyk: "cmyk(39, 16, 0, 10)",
+          lab: "lab(76, -8, -24)",
+        },
+        {
+          code: "50",
+          name: "Pale Cerulean",
+          hex: "#96C7E8",
+          hsb: "hsb(204, 35, 91)",
+          hsl: "hsl(204, 64%, 75%)",
+          rgb: "rgb(150, 199, 232)",
+          cmyk: "cmyk(35, 14, 0, 9)",
+          lab: "lab(78, -8, -21)",
+        },
+      ];
+      window.addEventListener("load", function () {
+        let parseHTML = "";
+        colors.forEach((color) => {
+          parseHTML += `
+          <div class="cardColor" style="background-color: ${color.hex};">  
+            <div class="group">
+              <div class="item">${color.code}</div>
+              <div class="item">${color.name}</div>
+              <div class="item">${color.hex}</div>
+              <div class="item">${color.hsb}</div>
+              <div class="item">${color.hsl}</div>
+              <div class="item">${color.rgb}</div>
+              <div class="item">${color.cmyk}</div>
+              <div class="item">${color.lab}</div>
+            </div>
+          </div>
+          `;
+        });
+        document.getElementById("root").innerHTML = parseHTML;
+
+        document.body.onclick = function (e) {
+          e = window.event ? event.srcElement : e.target;
+          if (e.className && e.className.indexOf("item") != -1) {
+            navigator.clipboard.writeText(e.innerHTML);
+
+            const darft = document.getElementsByClassName("draft");
+            darft[0].innerHTML = e.innerHTML;
+            darft[0].style.display = "block";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
